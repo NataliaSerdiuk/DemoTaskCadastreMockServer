@@ -2,13 +2,14 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST, require_GET
 from random import choice
-import time
 
 
 @csrf_exempt
 @require_POST
 def result_query(request):
     data = request.POST
+
+    # Полученные данные могут использоваться. В эмуляции это не отражено
     cadastre_number = data.get('cadastre_number')
     latitude = data.get('latitude')
     longitude = data.get('longitude')
